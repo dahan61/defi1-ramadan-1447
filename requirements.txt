@@ -1,0 +1,9 @@
+# S3C'1447 - RCPSP Solver
+# ========================
+# Aucune dépendance externe requise.
+# Utilise uniquement la bibliothèque standard Python.
+# Python >= 3.6 requis (testé avec Python 3.14.2)
+#
+# Modules utilisés (tous inclus dans Python) :
+#   os, sys, random, time, argparse, platform
+#   collections (deque)
