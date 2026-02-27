@@ -21,6 +21,7 @@ et les capacités limitées des ressources renouvelables.
 | `rcpsp_solver_v2.py` | **Code source V2** — Version améliorée avec classement des ressources, recherche de voisinage, et règles de priorité additionnelles |
 | `run_challenge.py` | **Script de lancement** — Identifie les instances ouvertes et exécute le solveur (V1 ou V2) |
 | `Rapport_S3C1447_Defi1_RCPSP.docx` | **Rapport Word** — Document expliquant le travail réalisé, les méthodes, corrections, et résultats |
+| `Tableau_Comparaison_Solutions.docx` | **Tableau de comparaison** (Point 5) — Fichier Word avec le tableau comparant nos solutions aux meilleures connues de PSPLIB |
 | `requirements.txt` | **Dépendances** — Aucune dépendance externe, uniquement Python standard library |
 | `results_v1.txt` | **Résultats V1** — Résultats de l'algorithme de l'article sur les instances ouvertes j60 |
 | `results_v2.txt` | **Résultats V2** — Résultats de l'algorithme amélioré sur les instances ouvertes j60 |
@@ -53,6 +54,7 @@ defi1-ramadan-1447/
 ├── run_challenge.py        # Script de lancement
 ├── requirements.txt
 └── Rapport_S3C1447_Defi1_RCPSP.docx
+└── Tableau_Comparaison_Solutions.docx
 ```
 
 ### Commandes d'exécution
@@ -64,13 +66,16 @@ python run_challenge.py j60 -s j60hrs.sm -m 50000 -o results_v1.txt
 # 2. Tester V2 (algorithme amélioré) sur les instances ouvertes
 python run_challenge.py j60 -s j60hrs.sm -m 50000 -o results_v2.txt --v2
 
-# 3. Tester sur TOUTES les 480 instances (ouvertes + fermées)
+# 3. Limiter à N instances (ex: 10 ou 20, pour aller plus vite)
+python run_challenge.py j60 -s j60hrs.sm -m 50000 -o results_v2.txt --v2 --limit 10
+
+# 4. Tester sur TOUTES les 480 instances (ouvertes + fermées)
 python run_challenge.py j60 -s j60hrs.sm -m 50000 -o results_all.txt --all
 
-# 4. Avec plus d'effort (λ = 500 000, plus lent mais meilleurs résultats)
+# 5. Avec plus d'effort (λ = 500 000, plus lent mais meilleurs résultats)
 python run_challenge.py j60 -s j60hrs.sm -m 500000 -o results_v2_500k.txt --v2
 
-# 5. Tester une seule instance
+# 6. Tester une seule instance
 python rcpsp_solver.py j60 --single j60/j601_1.sm -m 50000
 ```
 
@@ -84,6 +89,7 @@ python rcpsp_solver.py j60 --single j60/j601_1.sm -m 50000
 | `-o`, `--output` | `results.txt` | Fichier de sortie des résultats |
 | `--v2` | désactivé | Utiliser le solveur amélioré V2 |
 | `--all` | désactivé | Tester toutes les instances (pas seulement ouvertes) |
+| `--limit`, `-n` | `0` (= toutes) | Limiter à N instances ouvertes (ex: `--limit 10` ou `--limit 20`) |
 | `--seed` | `42` | Graine aléatoire pour reproductibilité |
 
 ---
@@ -237,7 +243,7 @@ encore terminé → **violations de précédence** (solutions infaisables).
 | 2 | Résultats de l'article 1 sur instances non résolues de 60 tâches | `results_v1.txt` | ✅ Fait |
 | 3 | Document Word/PowerPoint expliquant le travail | `Rapport_S3C1447_Defi1_RCPSP.docx` | ✅ Fait |
 | 4 | Code source des algorithmes d'amélioration | `rcpsp_solver_v2.py` | ✅ Fait |
-| 5 | Fichier Word avec tableau d'améliorations (si trouvées) | Section 5 du rapport Word | ✅ Fait |
+| 5 | Fichier Word avec tableau d'améliorations (si trouvées) | `Tableau_Comparaison_Solutions.docx` + Section 5 du rapport | ✅ Fait |
 
 ---
 

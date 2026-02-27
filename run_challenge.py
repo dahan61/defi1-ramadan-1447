@@ -21,6 +21,7 @@ def main():
     p.add_argument("--all", action="store_true", help="Run ALL instances, not just open")
     p.add_argument("--v2", action="store_true", help="Use enhanced V2 solver")
     p.add_argument("--seed", type=int, default=42, help="Random seed")
+    p.add_argument("--limit", "-n", type=int, default=0, help="Only test first N open instances (0 = all)")
     a = p.parse_args()
     
     random.seed(a.seed)
@@ -74,6 +75,10 @@ def main():
                                          only_open=False, out_file=a.output)
     else:
         open_instances.sort(key=lambda x: -(x['ub']-x['cp_lb'])/x['cp_lb'])
+        
+        if a.limit > 0:
+            open_instances = open_instances[:a.limit]
+            print(f"\n** Limited to first {a.limit} open instances **")
         
         print(f"\n{'Instance':<16} {'CP_LB':>6} {'Known_UB':>9} {'Gap':>5} {'Gap%':>7} {'Our_MS':>7} {'OK':>4} {'Status':>10} {'Time':>6}")
         print("-"*95)

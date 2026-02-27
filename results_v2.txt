@@ -1,0 +1,16 @@
+# S3C'1447 RCPSP Results - V2
+# Machine: Python 3.14.2, Intel64 Family 6 Model 140 Stepping 1, GenuineIntel, Windows
+# Lambda: 50000
+# Date: 2026-02-27 08:20
+
+Instance	Par	Inst	Jobs	CP_LB	Known_UB	Our_MS	Feasible	Status	Time_sec
+j6029_6.sm	29	6	62	77	154	159	True	+5	35.64
+j6045_10.sm	45	10	62	61	114	118	True	+4	24.96
+j6013_10.sm	13	10	62	63	117	121	True	+4	28.39
+j6045_2.sm	45	2	62	78	144	147	True	+3	31.19
+j6013_5.sm	13	5	62	53	97	102	True	+5	26.49
+j6045_4.sm	45	4	62	60	108	111	True	+3	20.19
+j6045_6.sm	45	6	62	80	144	149	True	+5	33.64
+j6029_4.sm	29	4	62	75	134	141	True	+7	32.40
+j6045_5.sm	45	5	62	60	106	110	True	+4	22.29
+j6029_1.sm	29	1	62	59	103	108	True	+5	20.83
